@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+brew list | grep -v "apple-gcc" | xargs brew info | grep Cellar | sed 's/\(.*\) \(.\+\)..\*\?/\2 \1/' | gsort -h | perl -e 'while(<>) { push @a, $_; } foreach (reverse(@a)) { print; }'
